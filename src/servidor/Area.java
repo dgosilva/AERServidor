@@ -6,7 +6,7 @@ public class Area {
 	
 	
 	//construtor de area
-	Area (double y, double x){
+	public Area (double y, double x){
 		this.latitude = y;
 		this.longitude = x;
 		raio = 300;
