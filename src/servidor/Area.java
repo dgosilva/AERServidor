@@ -43,11 +43,14 @@ public class Area {
 	public void aumentaRaio (double aumenta) {
 		raio = raio + aumenta;
 	}
-	public void diminuiRaio (double diminui) {
-		if (raio > diminui) {
+	
+	//retorna true se a Area deve ser destruida porque eh igual ou menor que o quanto se deve diminuir.
+	public boolean diminuiRaio (double diminui) {
+		if ( (raio-diminui) > 50 ) {
 			raio = raio - diminui;
+			return false;
 		} else {
-			//TODO exclui Area
+			return true;
 		}
 	}
 }
