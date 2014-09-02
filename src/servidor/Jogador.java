@@ -1,11 +1,17 @@
 package servidor;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Jogador {
 	
 	String nome;
+	
+	//acessar com: x = Jogador.MAX_PONTOS;
+	public static final int MAX_PONTOS = 10;
+	public static final int MAX_AREAS = 10;
+
 	//int do tipo 0xff223344
 	//ff é a transparencia. 22 red, 33 green, 44 blue
 	private int cor;
@@ -119,5 +125,21 @@ public class Jogador {
 	}
 	public int getQuantAreas () {
 		return quantAreas;
+	}
+	
+	public boolean atingiuMaxPontos () {
+		if (getQuantPontos() >= MAX_PONTOS) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean atingiuMaxAreas () {
+		if (getQuantAreas() >= MAX_AREAS) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
