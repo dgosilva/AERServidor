@@ -6,7 +6,7 @@
 	<artifactId>AreasERiscosServer</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0</version>
-	
+
 	<dependencies>
         <dependency>
             <groupId>org.unbiquitous</groupId>
