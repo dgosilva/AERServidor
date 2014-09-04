@@ -49,7 +49,7 @@ public class Ponto {
 		lat2 = ponto.getLatitude();
 		lon2 = ponto.getLongitude();
 		
-		double R = 6378.137; // Radius of earth in KM
+		double R = 6378.137; // Raio da Terra em KM
 	    double dLat = (lat2 - lat1) * Math.PI / 180;
 	    double dLon = (lon2 - lon1) * Math.PI / 180;
 	    double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
