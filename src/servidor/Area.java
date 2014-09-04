@@ -53,4 +53,15 @@ public class Area {
 			return true;
 		}
 	}
+	
+	public boolean estaContido(Ponto ponto) {
+		
+		Ponto area = new Ponto(latitude, longitude);
+		
+		if (area.distanciaMetro(ponto) < raio) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

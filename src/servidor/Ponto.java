@@ -38,6 +38,26 @@ public class Ponto {
             (p1.getLatitude() - p2.getLatitude()) *  (p1.getLatitude() - p2.getLatitude()) + 
             (p1.getLongitude() - p2.getLongitude()) *  (p1.getLongitude() - p2.getLongitude())
         );	
-	}	
+	}
+	
+	public double distanciaMetro(Ponto ponto){  // generally used geo measurement function
+	    
+		double lat1, lon1, lat2, lon2;
+		lat1 = latitude;
+		lon1 = longitude;
+		
+		lat2 = ponto.getLatitude();
+		lon2 = ponto.getLongitude();
+		
+		double R = 6378.137; // Radius of earth in KM
+	    double dLat = (lat2 - lat1) * Math.PI / 180;
+	    double dLon = (lon2 - lon1) * Math.PI / 180;
+	    double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+	    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+	    Math.sin(dLon/2) * Math.sin(dLon/2);
+	    double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+	    double d = R * c;
+	    return d * 1000; // meters
+	}
 	
 }

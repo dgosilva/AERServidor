@@ -72,7 +72,7 @@ public class Jogador {
 	public double adicionaPonto (Ponto ponto) {
 		double distancia = 0;
 		if (listaPontos.size()>0) {
-			distancia = ponto.distancia(listaPontos.get(listaPontos.size()-1));
+			distancia = ponto.distanciaMetro(listaPontos.get(listaPontos.size()-1));
 			adicionaPontuacaoRiscos (distancia);
 		}
 		
@@ -141,5 +141,25 @@ public class Jogador {
 		} else {
 			return false;
 		}
+	}
+	
+	public int contidoEmAlgumaArea(Ponto ponto) {
+		int i, indice;
+		double max = 0;
+		
+		Area area;
+		
+		indice = -1;
+		
+		for (i=0; i < listaAreas.size(); i++) {
+			if (listaAreas.get(i).estaContido(ponto)) {
+				if (listaAreas.get(i).getRaio() > max) {
+					max = listaAreas.get(i).getRaio();
+					indice = i;
+				}
+			}
+		}
+		
+		return indice;
 	}
 }
