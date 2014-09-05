@@ -27,13 +27,34 @@ import com.amazonaws.services.s3.model.S3ObjectSummary;
 
 public class AERDrivevr implements UosDriver{
 
+	//acessar com [variable] = AERDrivevr.DRIVER_NAME;
+	private static final String DRIVER_NAME = "uos.aerdriver";
+	
+	//considerando uma partida == 24h == 86400s == 86400000ms
+	//acessar com [variable] = AERDrivevr.TEMPO_PARTIDA;
+	private static final long TEMPO_PARTIDA = 86400000;
+	
+	
+	private Gateway gateway;
+	
 	public void destroy() {
 	}
 
 	public UpDriver getDriver() {
-		UpDriver driver = new UpDriver("uos.aerdriver");
+		
+		UpDriver driver = new UpDriver(DRIVER_NAME);
+		
+		//adiciona servicos
 		driver.addService("marcarPonto");
 		driver.addService("marcarArea");
+		driver.addService("removerPonto");
+		driver.addService("removerArea");
+		driver.addService("adicionarJogador");
+		driver.addService("removerJogador");
+		driver.addService("listarJogadores");
+		driver.addService("pontuacaoRiscos");
+		driver.addService("pontuacaoAreas");
+		
 		return driver;
 	}
 
@@ -44,11 +65,12 @@ public class AERDrivevr implements UosDriver{
 	public void init(Gateway arg0, InitialProperties arg1, String arg2) {
 	}
 
-	public void marcarPonto(Call request, Response response, CallContext ctx){
+	public void marcarPonto(Call request, Response response, CallContext ctx) {
 		int erro = 0;
 		Double lon = (Double) request.getParameter("longitude");
 		Double lat = (Double) request.getParameter("latidute");
 		
+		//TODO
 		//existe um ponto marcado pelo mesmo jogador no mesmo lugar?
 			//adiciona ponto para a lista
 		
@@ -58,11 +80,12 @@ public class AERDrivevr implements UosDriver{
 			response.addParameter("result", "falha");
 	}
 	
-	public void marcarArea(Call request, Response response, CallContext ctx){
+	public void marcarArea(Call request, Response response, CallContext ctx) {
 		int erro = 0;
 		Double lon = (Double) request.getParameter("longitude");
 		Double lat = (Double) request.getParameter("latidute");
 		
+		//TODO
 		//est dentro de uma area existente?
 			//sim: aumenta raio
 			//nao: cria area 
@@ -73,10 +96,33 @@ public class AERDrivevr implements UosDriver{
 			response.addParameter("result", "falha");
 	}
 	
-	public void removerPonto(Call request, Response response, CallContext ctx){
+	public void removerPonto(Call request, Response response, CallContext ctx) {
 		//TODO
 	}
 	
+	public void removerArea(Call request, Response response, CallContext ctx) {
+		//TODO
+	}
+	
+	public void adicionarJogador(Call request, Response response, CallContext ctx) {
+		//TODO
+	}
+	
+	public void removerJogador(Call request, Response response, CallContext ctx) {
+		//TODO
+	}
+	
+	public void listarJogadores(Call request, Response response, CallContext ctx) {
+		//TODO
+	}
+	
+	public void pontuacaoRiscos(Call request, Response response, CallContext ctx) {
+		//TODO
+	}
+	
+	public void pontuacaoAreas(Call request, Response response, CallContext ctx) {
+		//TODO
+	}
 	
 	
 //	void client(){
