@@ -42,6 +42,7 @@ public class AERDrivevr implements UosDriver{
 	
 	
 	private Gateway gateway;
+	//private AsyncCallService messenger = null;
 	private Set<Jogador> jogadores;
 	
 	public void destroy() {
@@ -54,13 +55,13 @@ public class AERDrivevr implements UosDriver{
 		//adiciona servicos
 		driver.addService("marcarPonto");
 		driver.addService("marcarArea");
-		driver.addService("removerPonto");
-		driver.addService("removerArea");
+		//driver.addService("removerPonto");
+		//driver.addService("removerArea");
 		driver.addService("adicionarJogador");
 		driver.addService("removerJogador");
-		driver.addService("listarJogadores");
-		driver.addService("pontuacaoRiscos");
-		driver.addService("pontuacaoAreas");
+		//driver.addService("listarJogadores");
+		//driver.addService("pontuacaoRiscos");
+		//driver.addService("pontuacaoAreas");
 		
 		return driver;
 	}
@@ -71,7 +72,8 @@ public class AERDrivevr implements UosDriver{
 
 	public void init(Gateway arg0, InitialProperties arg1, String arg2) {
 	}
-
+	
+	//SERVICO
 	public void marcarPonto(Call request, Response response, CallContext ctx) {
 		int erro = 0;
 		
@@ -122,6 +124,7 @@ public class AERDrivevr implements UosDriver{
 		}
 	}
 	
+	//SERVICO	
 	public void marcarArea(Call request, Response response, CallContext ctx) {
 		
 		//erro == 1 -> jogador nao existe
@@ -238,6 +241,7 @@ public class AERDrivevr implements UosDriver{
 		}
 	}
 	
+	//SERVICO	
 	public void adicionarJogador(Call request, Response response, CallContext ctx) {
 		
 		Jogador jogador = (Jogador) request.getParameter("jogador");
@@ -252,6 +256,7 @@ public class AERDrivevr implements UosDriver{
 		}
 	}
 	
+	//SERVICO	
 	public void removerJogador(Call request, Response response, CallContext ctx) {
 		Jogador jogador = (Jogador) request.getParameter("jogador");
 
