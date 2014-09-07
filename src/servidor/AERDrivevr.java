@@ -1,5 +1,6 @@
 package servidor;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -286,14 +287,20 @@ public class AERDrivevr implements UosDriver{
 		}
 	}
 	
-	//inutilizado por enquanto
-	public void pontuacaoRiscos(Call request, Response response, CallContext ctx) {
-		//TODO
+	public void pontuacaoRiscos(Call request, Response response, CallContext ctx) {	
+		List<Jogador> lista = null;
+		for(Jogador j : jogadores){
+			lista.add(j);
+		}	
+		Collections.sort(lista, new ComparadorPontuacaoRiscos());
 	}
 	
-	//inutilizado por enquanto
 	public void pontuacaoAreas(Call request, Response response, CallContext ctx) {
-		//TODO
+		List<Jogador> lista = null;
+		for(Jogador j : jogadores){
+			lista.add(j);
+		}	
+		Collections.sort(lista, new ComparadorPontuacaoAreas());
 	}
 	
 	public void checaColisoes (Jogador jogador, Ponto novo1, Ponto novo2) {
