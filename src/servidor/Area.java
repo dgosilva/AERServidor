@@ -66,6 +66,8 @@ public class Area {
 	}
 	
 	public double interseccaoArea(Area area) {
+		double intersectionArea;
+		
 		
 		Ponto centro1 = new Ponto(latitude, longitude);
 		Ponto centro2 = new Ponto(area.getLatitude() , area.getLongitude());
@@ -78,12 +80,16 @@ public class Area {
 		    r = area.getRaio();
 		    R = raio;
 		}
-		double part1 = ((r)*(r)*(Math.acos((d*d + r*r - R*R)/(2*d*r))));
-		double part2 = ((R)*(R)*(Math.acos((d*d + R*R - r*r)/(2*d*R))));
-		double part3 = ((0.5)*(Math.sqrt((-d+r+R)*(d+r-R)*(d-r+R)*(d+r+R))));
-
-		double intersectionArea = part1 + part2 - part3;
 		
+		if (d < R) { 
+			double part1 = ((r)*(r)*(Math.acos((d*d + r*r - R*R)/(2*d*r))));
+			double part2 = ((R)*(R)*(Math.acos((d*d + R*R - r*r)/(2*d*R))));
+			double part3 = ((0.5)*(Math.sqrt((-d+r+R)*(d+r-R)*(d-r+R)*(d+r+R))));
+	
+			intersectionArea = part1 + part2 - part3;
+		} else {
+			intersectionArea = 0;
+		}
 		return intersectionArea;
 	}
 }
