@@ -13,8 +13,13 @@ public class Main {
 //		config.addDriver(AERDrivevr.class);
 //		uos.start(config);
 		
-	    uos.start(new ServerMode.Properties());
+		ServerMode.Properties properties = new ServerMode.Properties();
+		properties.put("servidor", AERDrivevr.class.getName());
+//		properties.put("ubiquitos.websocket.messageBufferSize", 2 * 1024 * 1024); // 2 mb pra garantir
+		
+//	    uos.start(new ServerMode.Properties());
+		uos.start(properties);
 	}
-	
+		
 	
 }

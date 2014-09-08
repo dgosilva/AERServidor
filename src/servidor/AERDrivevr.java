@@ -13,9 +13,6 @@ import org.unbiquitous.uos.core.messageEngine.dataType.UpDriver;
 import org.unbiquitous.uos.core.messageEngine.messages.Call;
 import org.unbiquitous.uos.core.messageEngine.messages.Response;
 
-//import android.widget.Toast;
-
-
 
 //import com.amazonaws.AmazonClientException;
 //import com.amazonaws.AmazonServiceException;
