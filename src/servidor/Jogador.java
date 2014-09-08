@@ -55,6 +55,15 @@ public class Jogador {
 	public double getPontuacaoRiscos () {
 		return pontuacaoRiscos;
 	}
+	public void atualizaPontuacaoRiscos() {
+		int i;
+		double pontos = 0;
+		
+		for (i=0;i<getQuantPontos()-1;i++) {
+			pontos = pontos + listaPontos.get(i).distanciaMetro(listaPontos.get(i+1));
+		}
+		setPontuacaoRiscos (pontos);
+	}
 	
 	public void setPontuacaoAreas (double pontuacao) {
 		this.pontuacaoAreas = pontuacao;
@@ -146,8 +155,6 @@ public class Jogador {
 	public int contidoEmAlgumaArea(Ponto ponto) {
 		int i, indice;
 		double max = 0;
-		
-		Area area;
 		
 		indice = -1;
 		
