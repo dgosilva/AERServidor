@@ -85,6 +85,9 @@ public class AERDrivevr implements UosDriver{
 	
 	//SERVICO
 	public void marcarPonto(Call request, Response response, CallContext ctx) {
+		
+		//erro == 1 -> jogador nao existe
+		//erro == 2 -> ponto muito proximo a outro
 		int erro = 0;
 		
 		//checa se o jogador ja se encontra na lista de jogadores
