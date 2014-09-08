@@ -301,6 +301,8 @@ public class AERDrivevr implements UosDriver{
 			lista.add(j);
 		}	
 		Collections.sort(lista, new ComparadorPontuacaoAreas());
+		
+		gateway.listDevices();
 	}
 	
 	public void checaColisoes (Jogador jogador, Ponto novo1, Ponto novo2) {
