@@ -281,10 +281,9 @@ public class AERDrivevr implements UosDriver{
 	}
 	
 	//inutilizado por enquanto
-	public void listarJogadores(Call request, Response response, CallContext ctx) {
-		for(Jogador j : jogadores){
-			//TODO: printar na tela informacoes desejadas dos jogadores
-		}
+	public void getJogadores(Call request, Response response, CallContext ctx) {
+		response.addParameter("result", jogadores);
+		
 	}
 	
 	public void pontuacaoRiscos(Call request, Response response, CallContext ctx) {	
