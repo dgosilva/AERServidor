@@ -280,10 +280,9 @@ public class AERDrivevr implements UosDriver{
 		}
 	}
 	
-	//inutilizado por enquanto
+	//SERVICO
 	public void getJogadores(Call request, Response response, CallContext ctx) {
-		response.addParameter("result", jogadores);
-		
+		response.addParameter("result", jogadores);	
 	}
 	
 	public void pontuacaoRiscos(Call request, Response response, CallContext ctx) {	
